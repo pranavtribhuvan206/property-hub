@@ -78,26 +78,34 @@
       if (currentFilters.search) params.append('search', currentFilters.search);
 
       const res = await fetch(`/api/properties?${params.toString()}`);
-      const data = await res.json();
-
-      if (data.success) {
-        properties = data.properties;
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success) {
+          properties = data.properties;
+          renderProperties(properties);
+          if (resultsCountEl) {
+            resultsCountEl.textContent = properties.length;
+          }
+          return;
+        }
+      }
+      throw new Error('API unavailable');
+    } catch (err) {
+      // Client-side fallback for static cloud hosting (GitHub Pages)
+      const localProps = JSON.parse(localStorage.getItem('ph_properties') || '[]');
+      if (localProps.length > 0) {
+        properties = localProps;
         renderProperties(properties);
         if (resultsCountEl) {
           resultsCountEl.textContent = properties.length;
         }
       } else {
-        throw new Error(data.error || 'Failed to load properties');
+        properties = [];
+        renderProperties([]);
+        if (resultsCountEl) {
+          resultsCountEl.textContent = '0';
+        }
       }
-    } catch (err) {
-      console.error('Fetch error:', err);
-      propertiesContainer.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
-          <h3 style="color: #FFF; margin-bottom: 0.5rem;">Unable to load properties</h3>
-          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Please check your server connection or refresh the page.</p>
-          <button class="btn btn-burgundy" onclick="location.reload()">Retry Loading</button>
-        </div>
-      `;
     }
   }
 
