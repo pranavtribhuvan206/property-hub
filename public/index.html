@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Hub | Luxury Real Estate & Advisory | Pune, Mumbai, Bangalore</title>
+  <meta name="description" content="Discover premium homes, luxury penthouses, villas, NA plots, commercial spaces, and real estate investment opportunities at Property Hub. Direct WhatsApp advisory: +91 79728 89444.">
+  <meta name="keywords" content="Property Hub, Luxury Real Estate Pune, Mumbai Luxury Apartments, Villas, NA Plots, MahaRERA verified, Real Estate Advisory, Buy Flat Pune, Commercial Showrooms">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Property Hub | Premier Real Estate Advisory">
+  <meta property="og:description" content="Find Your Dream Property with Confidence at Property Hub. Curating India's finest residences, plots & commercial assets.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Schema.org RealEstateAgent JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Property Hub",
+    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+    "telephone": "+917972889444",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Penthouse Suite 802, Prestige Tower, Senapati Bapat Road",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "postalCode": "411016",
+      "addressCountry": "IN"
+    },
+    "priceRange": "₹50 Lakhs - ₹20 Crores",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "09:00",
+      "closes": "21:00"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <span class="top-bar-badge">
+          <span>🏛️</span> MahaRERA Registered Advisory Partner
+        </span>
+        <span style="color: var(--border-light);">|</span>
+        <span>Discretion & Excellence for HNWI Investors & Homebuyers</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:+917972889444" class="top-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Direct Line: +91 79728 89444
+        </a>
+        <span style="color: var(--border-light);">|</span>
+        <a href="https://wa.me/917972889444" target="_blank" class="top-link" style="color: #25D366; font-weight: 600;">
+          WhatsApp: 79728 89444
+        </a>
+        <span style="color: var(--border-light);">|</span>
+        <a href="/admin" class="top-link" style="color: var(--accent-champagne);">
+          Admin Portal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-content">
+      <!-- Logo -->
+      <a href="/" class="logo-link">
+        <div class="logo-crest">PH</div>
+        <div class="logo-text">
+          <span class="logo-title">PROPERTY HUB</span>
+          <span class="logo-subtitle">Real Estate Advisory</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#properties-section" class="nav-link active">Properties</a></li>
+          <li><a href="#residential" class="nav-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=residential]').click();">Residential</a></li>
+          <li><a href="#commercial" class="nav-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=commercial]').click();">Commercial</a></li>
+          <li><a href="#land" class="nav-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=land]').click();">Plots & Land</a></li>
+          <li><a href="#rentals" class="nav-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=rental]').click();">Rentals</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#calculator" class="nav-link">EMI Calc</a></li>
+          <li><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <!-- Compare Button -->
+        <button class="header-icon-btn" id="openCompareBtn" title="Compare Properties">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path></svg>
+          <span class="badge-counter" id="compareCounter">0</span>
+        </button>
+
+        <!-- Favorites Button -->
+        <button class="header-icon-btn" id="openFavoritesBtn" title="Saved Favorites">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="badge-counter" id="favCounter">0</span>
+        </button>
+
+        <!-- Direct WhatsApp Button -->
+        <a href="https://wa.me/917972889444?text=Hello%2C%20I%20am%20interested%20in%20consulting%20with%20Property%20Hub." target="_blank" class="btn btn-whatsapp" style="display: none; @media(min-width: 900px){display:inline-flex;}">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+          <span>WhatsApp Us</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('mobile-open')">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Luxury Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-tag">
+        <span>✦</span> Prime Real Estate Mandates & Advisory
+      </div>
+      <h1 class="hero-title">
+        Find Your Dream Property with <span>Confidence.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Discover premium homes, plots, commercial spaces, and real estate investment opportunities. Backed by verified MahaRERA titles and dedicated 1-on-1 WhatsApp advisory.
+      </p>
+
+      <!-- Main Action Buttons -->
+      <div class="hero-cta-group">
+        <a href="#properties-section" class="btn btn-burgundy">
+          Explore Properties
+        </a>
+        <button class="btn btn-dark" onclick="window.RealEstateForms.openInquiryModal('buy')">
+          Buy Property
+        </button>
+        <button class="btn btn-dark" onclick="window.RealEstateForms.openInquiryModal('sell')">
+          Sell Property
+        </button>
+        <button class="btn btn-dark" onclick="window.RealEstateForms.openInquiryModal('rent')">
+          Rent Property
+        </button>
+        <a href="https://wa.me/917972889444?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20real%20estate%20options." target="_blank" class="btn btn-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+          Contact on WhatsApp
+        </a>
+      </div>
+
+      <!-- Advanced Property Search Panel -->
+      <div class="hero-search-wrapper">
+        <div class="search-tabs">
+          <button class="search-tab active" data-transaction="all">All Deals</button>
+          <button class="search-tab" data-transaction="Buy">Buy</button>
+          <button class="search-tab" data-transaction="Rent">Rent</button>
+          <button class="search-tab" data-transaction="Lease">Lease</button>
+          <button class="search-tab" data-transaction="Invest">Invest</button>
+        </div>
+
+        <div class="search-grid">
+          <div class="search-field">
+            <label class="search-label">Location / City</label>
+            <select class="search-select" id="filterCity">
+              <option value="all">All Locations (Maharashtra & Blr)</option>
+              <option value="Pune">Pune</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Near Mumbai">Near Mumbai (Karjat / Lonavala)</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label class="search-label">Configuration</label>
+            <select class="search-select" id="filterBhk">
+              <option value="all">Any BHK / Config</option>
+              <option value="1">1 BHK</option>
+              <option value="2">2 BHK</option>
+              <option value="3">3 BHK</option>
+              <option value="4">4 BHK</option>
+              <option value="5">5+ BHK / Villas</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label class="search-label">Budget Range</label>
+            <select class="search-select" id="filterBudget">
+              <option value="all">Any Budget</option>
+              <option value="0-10000000">Under ₹1.00 Cr</option>
+              <option value="10000000-30000000">₹1.00 Cr - ₹3.00 Cr</option>
+              <option value="30000000-70000000">₹3.00 Cr - ₹7.00 Cr</option>
+              <option value="70000000-200000000">₹7.00 Cr - ₹20.00 Cr</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label class="search-label">Keyword / Locality</label>
+            <input type="text" class="search-input" id="globalSearchInput" placeholder="e.g. Koregaon Park, Penthouse, Bandra">
+          </div>
+
+          <div>
+            <button class="btn btn-burgundy" style="width: 100%; height: 46px;" onclick="document.getElementById('properties-section').scrollIntoView({behavior: 'smooth'})">
+              Search
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Category Pills -->
+        <div class="quick-pills-bar">
+          <span style="font-size: 0.8rem; color: var(--accent-champagne); align-self: center; margin-right: 0.5rem;">QUICK FILTER:</span>
+          <button class="quick-pill active" data-category="all">All Categories</button>
+          <button class="quick-pill" data-category="residential">Residential Homes</button>
+          <button class="quick-pill" data-category="commercial">Commercial & Retail</button>
+          <button class="quick-pill" data-category="land">NA Plots & Land</button>
+          <button class="quick-pill" data-category="rental">Luxury Rentals</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Statistics Ribbon -->
+  <section class="stats-ribbon">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Verified Listings</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">₹350+ Cr</div>
+          <div class="stat-label">Assets Transacted</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">99.4%</div>
+          <div class="stat-label">Client Trust Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">14+ Years</div>
+          <div class="stat-label">Market Advisory</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Properties Showcase & Dynamic Engine -->
+  <section class="section-padding" id="properties-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Exclusive Portfolio</div>
+        <h2 class="section-title">Curated Real Estate Collection</h2>
+        <p class="section-desc">
+          Browse luxury penthouses, signature villas, high-street retail, Grade-A IT offices, and clear-title NA plots across Maharashtra and Bangalore.
+        </p>
+      </div>
+
+      <!-- Filter Console Controls -->
+      <div class="filter-console">
+        <div class="filter-row-top">
+          <div class="filter-category-pills">
+            <button class="filter-cat-btn active" data-category="all">All Properties</button>
+            <button class="filter-cat-btn" data-category="residential">Residential</button>
+            <button class="filter-cat-btn" data-category="commercial">Commercial</button>
+            <button class="filter-cat-btn" data-category="land">Plots & Land</button>
+            <button class="filter-cat-btn" data-category="rental">Rentals</button>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <label style="font-size: 0.85rem; color: var(--text-muted);">Sort By:</label>
+            <select class="search-select" id="filterSort" style="width: auto; padding: 0.45rem 0.9rem; font-size: 0.85rem;">
+              <option value="featured">Featured First</option>
+              <option value="price_asc">Price: Low to High</option>
+              <option value="price_desc">Price: High to Low</option>
+              <option value="area_asc">Area: Low to High</option>
+              <option value="area_desc">Area: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-actions">
+          <div class="results-count-text">
+            Showing <strong id="resultsCount">0</strong> verified properties
+          </div>
+          <button class="btn btn-dark btn-sm" onclick="window.RealEstateApp.resetFilters()">
+            ✕ Reset All Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Properties Grid (Populated dynamically via JavaScript & SQLite database) -->
+      <div class="properties-grid" id="propertiesGrid">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Real Estate Tools: EMI Calculator -->
+  <section class="section-padding" id="calculator" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Financial Planning</div>
+        <h2 class="section-title">Home Loan & Mortgage EMI Calculator</h2>
+        <p class="section-desc">
+          Plan your luxury real estate investment with accurate Indian banking figures. Our institutional banking tie-ups ensure priority processing with HDFC, SBI, and ICICI.
+        </p>
+      </div>
+
+      <div class="calculator-box">
+        <div class="calc-grid">
+          <!-- Sliders -->
+          <div>
+            <!-- Loan Amount -->
+            <div class="calc-control">
+              <div class="calc-label-row">
+                <span class="text-white">Loan Amount</span>
+                <span class="text-gold font-bold" id="emiLoanDisplay">₹2.00 Cr</span>
+              </div>
+              <input type="range" class="calc-range" id="emiLoanAmount" min="2000000" max="100000000" step="1000000" value="20000000">
+            </div>
+
+            <!-- Interest Rate -->
+            <div class="calc-control">
+              <div class="calc-label-row">
+                <span class="text-white">Annual Interest Rate</span>
+                <span class="text-gold font-bold" id="emiRateDisplay">8.5%</span>
+              </div>
+              <input type="range" class="calc-range" id="emiInterestRate" min="7.5" max="12.0" step="0.1" value="8.5">
+            </div>
+
+            <!-- Tenure -->
+            <div class="calc-control">
+              <div class="calc-label-row">
+                <span class="text-white">Loan Tenure</span>
+                <span class="text-gold font-bold" id="emiTenureDisplay">20 Years</span>
+              </div>
+              <input type="range" class="calc-range" id="emiTenureYears" min="5" max="30" step="1" value="20">
+            </div>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+              <button class="btn btn-whatsapp" onclick="window.RealEstateForms.openInquiryModal('home_loan')">
+                Inquire Home Loan Assistance
+              </button>
+            </div>
+          </div>
+
+          <!-- Calculated Output -->
+          <div class="calc-result-card">
+            <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-champagne);">Estimated Monthly EMI</div>
+            <div class="emi-amount" id="emiResultAmount">₹1,73,561</div>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; text-align: left; padding-top: 1.25rem; border-top: 1px solid var(--border-burgundy); font-size: 0.9rem;">
+              <div style="display: flex; justify-content: space-between;">
+                <span class="text-muted">Total Interest Payable:</span>
+                <span class="text-white" id="emiTotalInterest">₹2,16,54,554</span>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span class="text-muted">Total Amount (Principal + Interest):</span>
+                <span class="text-gold" id="emiTotalPayment">₹4,16,54,554</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Services -->
+  <section class="section-padding" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Bespoke Advisory</div>
+        <h2 class="section-title">End-to-End Real Estate Services</h2>
+        <p class="section-desc">
+          From high-ticket acquisitions to institutional leasing, we provide seamless transaction execution with full legal integrity.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon">🏛️</div>
+          <h3 class="service-title">Luxury Residential Acquisition</h3>
+          <p class="service-desc">
+            Direct access to prime builder inventory, off-market penthouses, sea-facing Mumbai apartments, and bespoke Pune villas with zero conflict of interest.
+          </p>
+          <button class="btn btn-dark btn-sm" style="margin-top: 1.25rem;" onclick="window.RealEstateForms.openInquiryModal('buy')">
+            Inquire Buying →
+          </button>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3 class="service-title">Commercial & Retail Brokerage</h3>
+          <p class="service-desc">
+            High-street retail showrooms, Grade-A IT office plates, and pre-leased commercial assets offering stable 7.5% - 9% rental yields.
+          </p>
+          <button class="btn btn-dark btn-sm" style="margin-top: 1.25rem;" onclick="window.RealEstateForms.openInquiryModal('commercial')">
+            Inquire Commercial →
+          </button>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon">🌄</div>
+          <h3 class="service-title">Plots, NA Land & Farmhouses</h3>
+          <p class="service-desc">
+            Collector-sanctioned residential NA plots with clear 7/12 extracts, gated road access, water & power supply in scenic Mulshi, Karjat, and Lonavala.
+          </p>
+          <button class="btn btn-dark btn-sm" style="margin-top: 1.25rem;" onclick="window.RealEstateForms.openInquiryModal('land')">
+            Inquire Land & Plots →
+          </button>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-icon">🔑</div>
+          <h3 class="service-title">Owner Mandate & Sale Services</h3>
+          <p class="service-desc">
+            Bespoke marketing for property owners. We vet HNWI buyers, conduct scheduled private viewings, and achieve optimum market valuations.
+          </p>
+          <button class="btn btn-dark btn-sm" style="margin-top: 1.25rem;" onclick="window.RealEstateForms.openInquiryModal('sell')">
+            List Property for Sale →
+          </button>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3 class="service-title">Real Estate Investment Advisory</h3>
+          <p class="service-desc">
+            Strategic portfolio allocation for high net-worth individuals and NRIs seeking capital appreciation, rental yield, and tax-efficient reinvestment.
+          </p>
+          <button class="btn btn-dark btn-sm" style="margin-top: 1.25rem;" onclick="window.RealEstateForms.openInquiryModal('investment')">
+            Inquire Investment →
+          </button>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card">
+          <div class="service-icon">⚖️</div>
+          <h3 class="service-title">Legal Title & Home Loan Syndication</h3>
+          <p class="service-desc">
+            Rigorous 30-year search report verification, MahaRERA compliance scrutiny, stamp duty advisory, and institutional bank financing up to ₹50 Cr.
+          </p>
+          <button class="btn btn-dark btn-sm" style="margin-top: 1.25rem;" onclick="window.RealEstateForms.openInquiryModal('home_loan')">
+            Check Loan Eligibility →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section-padding" id="why-us" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">The Property Hub Standard</div>
+        <h2 class="section-title">Why Discerning Clients Choose Us</h2>
+        <p class="section-desc">
+          We combine the discretion of a private family office with deep on-ground market intelligence across Pune and Mumbai.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-header">
+            <span class="feature-number">01</span>
+            <h3 style="font-size: 1.15rem; color: #FFF;">Direct WhatsApp Access</h3>
+          </div>
+          <p style="color: var(--text-light-gray); font-size: 0.95rem; line-height: 1.7;">
+            Connect instantly with our principal advisor at <strong>+91 79728 89444</strong>. Zero call-center delays, zero automated spam — only personal, expert guidance.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-header">
+            <span class="feature-number">02</span>
+            <h3 style="font-size: 1.15rem; color: #FFF;">100% MahaRERA Verified</h3>
+          </div>
+          <p style="color: var(--text-light-gray); font-size: 0.95rem; line-height: 1.7;">
+            Every primary residential project has verified MahaRERA registration and approved building sanctions prior to presentation.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-header">
+            <span class="feature-number">03</span>
+            <h3 style="font-size: 1.15rem; color: #FFF;">Off-Market Trophy Assets</h3>
+          </div>
+          <p style="color: var(--text-light-gray); font-size: 0.95rem; line-height: 1.7;">
+            Exclusive mandates in prestigious enclaves like Koregaon Park, Bandra West, Worli, and Baner Hills that never appear on public portals.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-header">
+            <span class="feature-number">04</span>
+            <h3 style="font-size: 1.15rem; color: #FFF;">Absolute Privacy & Discretion</h3>
+          </div>
+          <p style="color: var(--text-light-gray); font-size: 0.95rem; line-height: 1.7;">
+            We safeguard owner contact details and investor identities under strict NDAs throughout negotiations and registration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Genuine Verified Client Testimonials -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Client Perspectives</div>
+        <h2 class="section-title">Trusted by Business Leaders & Families</h2>
+        <p class="section-desc">
+          Reflections from clients who transacted luxury residences, corporate spaces, and land assets with our advisory.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            "Acquiring our 4 BHK duplex penthouse in Koregaon Park was handled with impeccable professionalism. Within 2 hours of our initial WhatsApp inquiry, we had complete sanction drawings and a private viewing scheduled without any intrusive calls."
+          </p>
+          <div class="testimonial-client">
+            <div class="client-avatar">VS</div>
+            <div class="client-info">
+              <h4>Vikramaditya Singhania</h4>
+              <p>Managing Director, Apex Heavy Industries</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            "As an NRI based in Dubai, finding a clear-title NA villa plot near Pune with legitimate 7/12 records was daunting until I worked with Property Hub. Their transparency regarding collector sanctions and local revenue guidelines is unmatched."
+          </p>
+          <div class="testimonial-client">
+            <div class="client-avatar">RK</div>
+            <div class="client-info">
+              <h4>Dr. Rajesh Krishnan</h4>
+              <p>Specialist Surgeon & Global Investor (Dubai)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            "They assisted us in securing a prime 3,200 sq ft retail corner on Senapati Bapat Road for our flagship store. Negotiation, lease registration, and stamp duty were executed seamlessly in record time."
+          </p>
+          <div class="testimonial-client">
+            <div class="client-avatar">MD</div>
+            <div class="client-info">
+              <h4>Meenakshi Dalmia</h4>
+              <p>Founder & CEO, Lumina Lifestyle Retail</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Estate FAQs -->
+  <section class="section-padding" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Clarity & Confidence</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">
+          Key insights regarding Indian real estate transactions, MahaRERA guidelines, and site visit scheduling.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does the WhatsApp inquiry system work on this website?</span>
+            <span style="color: var(--accent-champagne);">+</span>
+          </button>
+          <div class="faq-answer">
+            Every inquiry form on our website formats your specific property requirements, verifies the contact details, securely logs the lead in our admin system, and directly opens WhatsApp with our principal advisor at <strong>+91 79728 89444</strong>. You simply tap "Send" inside WhatsApp to begin an instant one-on-one consultation.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are all residential properties compliant with MahaRERA?</span>
+            <span style="color: var(--accent-champagne);">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Every ongoing residential project listed on our portal displays its valid MahaRERA registration number. For resale properties and completed developments with Occupancy Certificates (OC), we conduct comprehensive title search verification.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can you arrange private chauffeured site visits?</span>
+            <span style="color: var(--accent-champagne);">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. For qualified luxury residential and commercial mandates, our advisory team organizes scheduled private walkthroughs, including executive chauffeured pickup across Pune and Mumbai upon request.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What are the legal checks conducted for NA Plots and Land?</span>
+            <span style="color: var(--accent-champagne);">+</span>
+          </button>
+          <div class="faq-answer">
+            For plots and land parcels, we verify the latest 7/12 extract, Collector NA sanction order, demarcation demarcation map, encumbrance certificates for the last 30 years, and zone classifications before recommending any acquisition.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do you assist Non-Resident Indians (NRIs) with real estate investments?</span>
+            <span style="color: var(--accent-champagne);">+</span>
+          </button>
+          <div class="faq-answer">
+            Absolutely. We assist NRIs with FEMA compliance, NRE/NRO banking transfers, Power of Attorney (PoA) registration, remote virtual video tours, and repatriation advisory under RBI guidelines.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strong VIP WhatsApp Inquiry CTA Banner -->
+  <section class="section-padding" id="contact">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-banner-content">
+          <div style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-champagne); margin-bottom: 0.75rem;">
+            Direct Principal Advisory
+          </div>
+          <h2 class="cta-banner-title">
+            Discuss Your Real Estate Mandate Directly on WhatsApp
+          </h2>
+          <p class="cta-banner-desc">
+            Whether you seek an extraordinary home, wish to list an elite property for sale, or require commercial real estate advisory, connect directly with our principal broker on WhatsApp at <strong>+91 79728 89444</strong>.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://wa.me/917972889444?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20property%20mandate%20with%20Property%20Hub." target="_blank" class="btn btn-whatsapp" style="padding: 1rem 2rem; font-size: 1.05rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              Chat on WhatsApp: +91 79728 89444
+            </a>
+            <button class="btn btn-outline-gold" onclick="window.RealEstateForms.openInquiryModal('callback')">
+              Request a Callback
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="logo-link">
+            <div class="logo-crest">PH</div>
+            <div class="logo-text">
+              <span class="logo-title">PROPERTY HUB</span>
+              <span class="logo-subtitle">Luxury Real Estate Advisory</span>
+            </div>
+          </div>
+          <p>
+            Curating India’s finest luxury residences, high-street commercial developments, and collector-sanctioned NA land parcels. Upholding uncompromising integrity and personal discretion.
+          </p>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="https://wa.me/917972889444" target="_blank" class="card-icon-btn" title="WhatsApp" style="color: #25D366;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+            </a>
+            <a href="tel:+917972889444" class="card-icon-btn" title="Call">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Categories -->
+        <div>
+          <h4 class="footer-heading">Property Portfolios</h4>
+          <ul class="footer-links">
+            <li><a href="#properties-section" class="footer-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=residential]').click();">Luxury Apartments & Penthouses</a></li>
+            <li><a href="#properties-section" class="footer-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=residential]').click();">Signature Villas & Bungalows</a></li>
+            <li><a href="#properties-section" class="footer-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=commercial]').click();">Corporate Offices & Showrooms</a></li>
+            <li><a href="#properties-section" class="footer-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=land]').click();">Collector Sanctioned NA Plots</a></li>
+            <li><a href="#properties-section" class="footer-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=rental]').click();">High-End Residential Rentals</a></li>
+          </ul>
+        </div>
+
+        <!-- Inquiry Links -->
+        <div>
+          <h4 class="footer-heading">Inquiry Concierge</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('buy')">Buy a Property</a></li>
+            <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('sell')">Sell Your Property</a></li>
+            <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('rent')">Find Rental Home</a></li>
+            <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('list_rental')">List Property for Rent</a></li>
+            <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('site_visit')">Book a Site Visit</a></li>
+            <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('home_loan')">Home Loan Consultation</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Details -->
+        <div>
+          <h4 class="footer-heading">Principal Office</h4>
+          <p style="font-size: 0.9rem; color: var(--text-light-gray); line-height: 1.6; margin-bottom: 1rem;">
+            Penthouse Suite 802, Prestige Tower, Senapati Bapat Road, Pune, Maharashtra 411016
+          </p>
+          <div style="font-size: 0.9rem; color: var(--text-light-gray); display: flex; flex-direction: column; gap: 0.5rem;">
+            <div><strong>WhatsApp:</strong> <a href="https://wa.me/917972889444" style="color: #25D366;">+91 79728 89444</a></div>
+            <div><strong>Direct Line:</strong> <a href="tel:+917972889444" style="color: var(--accent-champagne);">+91 79728 89444</a></div>
+            <div><strong>Email:</strong> <span style="color: #FFF;">inquiries@propertyhub.com</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal & Disclaimer -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 Property Hub. All Rights Reserved.
+        </div>
+        <div style="font-size: 0.78rem; max-width: 650px; line-height: 1.5; color: var(--text-muted);">
+          * MahaRERA Disclaimer: Project details, floor plans, and pricing are curated from MahaRERA registered disclosures and authorized developer channel partnerships. Independent title verification is advised prior to execution.
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="/admin" style="color: var(--accent-champagne);">Admin Portal</a>
+          <a href="/sitemap.xml" target="_blank" style="color: var(--text-muted);">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Widget -->
+  <div class="floating-whatsapp">
+    <!-- Quick Inquiry Menu -->
+    <div class="whatsapp-quick-menu" id="whatsappQuickMenu">
+      <div class="quick-menu-header">
+        <span>Direct WhatsApp Advisory</span>
+        <span style="color: #25D366;">● Online</span>
+      </div>
+      <div class="quick-menu-item" onclick="window.RealEstateForms.openInquiryModal('buy')">
+        <span>🏡</span> Inquire to Buy Property
+      </div>
+      <div class="quick-menu-item" onclick="window.RealEstateForms.openInquiryModal('sell')">
+        <span>🏷️</span> List / Sell Property
+      </div>
+      <div class="quick-menu-item" onclick="window.RealEstateForms.openInquiryModal('commercial')">
+        <span>🏢</span> Commercial & Retail Inquiry
+      </div>
+      <div class="quick-menu-item" onclick="window.RealEstateForms.openInquiryModal('land')">
+        <span>🌄</span> NA Plots & Land Inquiry
+      </div>
+      <div class="quick-menu-item" onclick="window.RealEstateForms.openInquiryModal('site_visit')">
+        <span>📅</span> Schedule a Site Visit
+      </div>
+      <a href="https://wa.me/917972889444?text=Hello%2C%20I%20have%20a%20general%20real%20estate%20question." target="_blank" class="quick-menu-item" style="color: #25D366; font-weight: 600; border-top: 1px solid var(--border-light); margin-top: 0.25rem;">
+        <span>💬</span> General WhatsApp Chat (+91 79728 89444)
+      </a>
+    </div>
+
+    <!-- Bubble Button -->
+    <div class="whatsapp-bubble" id="whatsappFloatingBubble" title="Connect on WhatsApp (+91 79728 89444)">
+      <div class="whatsapp-pulse"></div>
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky Action Bar -->
+  <div class="mobile-sticky-bar">
+    <a href="tel:+917972889444" class="btn btn-dark btn-sm">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call Us
+    </a>
+    <a href="https://wa.me/917972889444?text=Hello%2C%20I%20am%20interested%20in%20property%20details." target="_blank" class="btn btn-whatsapp btn-sm">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <!-- Saved Properties Side Drawer -->
+  <div class="side-drawer" id="favoritesDrawer">
+    <div class="drawer-header">
+      <h3 style="font-size: 1.2rem; color: #FFF; font-family: var(--font-serif);">Saved Favorites</h3>
+      <button class="modal-close-btn">&times;</button>
+    </div>
+    <div class="drawer-body">
+      <!-- Populated dynamically via JS -->
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-burgundy" style="width: 100%;" onclick="window.RealEstateForms.openInquiryModal('buy')">
+        Inquire All Saved Properties
+      </button>
+    </div>
+  </div>
+
+  <!-- Comparison Side Drawer -->
+  <div class="side-drawer" id="compareDrawer" style="width: 650px; max-width: 95vw;">
+    <div class="drawer-header">
+      <h3 style="font-size: 1.2rem; color: #FFF; font-family: var(--font-serif);">Compare Properties</h3>
+      <button class="modal-close-btn">&times;</button>
+    </div>
+    <div class="drawer-body">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/data.js"></script>
+  <script src="./js/forms.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

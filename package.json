@@ -1,0 +1,11 @@
+{
+  "name": "luxury-real-estate",
+  "version": "1.0.0",
+  "description": "Premium Luxury Real Estate Website with Black & Burgundy Theme and Direct WhatsApp Lead Routing",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Real Estate Advisory",
+  "license": "ISC"
+}
