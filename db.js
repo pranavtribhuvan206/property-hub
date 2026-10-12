@@ -100,15 +100,23 @@ function initDb() {
     );
   `);
 
-  // Default admin user
-  const adminCheck = db.prepare('SELECT id FROM admin_users WHERE username = ?').get('admin');
-  if (!adminCheck) {
-    const { hash, salt } = hashPassword('admin@burgundy2026');
-    db.prepare('INSERT INTO admin_users (username, password_hash, salt, full_name) VALUES (?, ?, ?, ?)').run(
-      'admin',
+  // Default admin user: Property_Hub / Pranav@2006
+  const { hash, salt } = hashPassword('Pranav@2006');
+  const userCheck = db.prepare('SELECT id FROM admin_users WHERE username = ? OR username = ?').get('Property_Hub', 'admin');
+  if (userCheck) {
+    db.prepare('UPDATE admin_users SET username = ?, password_hash = ?, salt = ?, full_name = ? WHERE id = ?').run(
+      'Property_Hub',
       hash,
       salt,
-      'Real Estate Principal Broker'
+      'Property Hub Principal Admin',
+      userCheck.id
+    );
+  } else {
+    db.prepare('INSERT INTO admin_users (username, password_hash, salt, full_name) VALUES (?, ?, ?, ?)').run(
+      'Property_Hub',
+      hash,
+      salt,
+      'Property Hub Principal Admin'
     );
   }
 

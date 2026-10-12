@@ -386,7 +386,7 @@ const server = http.createServer(async (req, res) => {
         return sendJson(res, 400, { success: false, error: 'Username and password required' });
       }
 
-      const user = db.prepare('SELECT * FROM admin_users WHERE username = ?').get(username);
+      const user = db.prepare('SELECT * FROM admin_users WHERE LOWER(username) = LOWER(?)').get(username);
       if (!user || !verifyPassword(password, user.password_hash, user.salt)) {
         return sendJson(res, 401, { success: false, error: 'Invalid credentials. Please verify your admin username and password.' });
       }

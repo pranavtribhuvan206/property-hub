@@ -52,13 +52,13 @@
           <form id="adminLoginForm" style="text-align: left;">
             <div style="margin-bottom: 1.25rem;">
               <label style="display: block; font-size: 0.82rem; color: #D7C1A0; margin-bottom: 0.4rem; font-weight: 600;">Username</label>
-              <input type="text" id="loginUsername" class="form-input-admin" placeholder="e.g. admin" required value="admin">
+              <input type="text" id="loginUsername" class="form-input-admin" placeholder="Property_Hub" required value="Property_Hub">
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <label style="display: block; font-size: 0.82rem; color: #D7C1A0; margin-bottom: 0.4rem; font-weight: 600;">Secure Password</label>
-              <input type="password" id="loginPassword" class="form-input-admin" placeholder="••••••••••••" required value="admin@burgundy2026">
-              <span style="font-size: 0.72rem; color: #8E8E93; margin-top: 0.3rem; display: block;">Default test credential: admin@burgundy2026</span>
+              <input type="password" id="loginPassword" class="form-input-admin" placeholder="••••••••••••" required value="Pranav@2006">
+              <span style="font-size: 0.72rem; color: #8E8E93; margin-top: 0.3rem; display: block;">Default credential: Property_Hub / Pranav@2006</span>
             </div>
 
             <div id="loginError" style="display: none; background: rgba(220, 38, 38, 0.2); border: 1px solid #dc2626; color: #fca5a5; padding: 0.75rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 1.25rem;"></div>
@@ -106,12 +106,15 @@
       }
       throw new Error('API offline');
     } catch (err) {
-      if (username.toLowerCase() === 'admin' && (password === 'admin@burgundy2026' || password === 'admin')) {
+      const isUserMatch = (username.toLowerCase() === 'property_hub' || username.toLowerCase() === 'admin');
+      const isPassMatch = (password === 'Pranav@2006' || password === 'admin@burgundy2026' || password === 'admin');
+
+      if (isUserMatch && isPassMatch) {
         authToken = 'ph_admin_' + Date.now();
         localStorage.setItem('aurum_admin_token', authToken);
-        showDashboardScreen({ username: 'admin', full_name: 'Principal Broker (Property Hub)' });
+        showDashboardScreen({ username: 'Property_Hub', full_name: 'Property Hub Administrator' });
       } else {
-        errorBox.textContent = 'Invalid credentials. Please enter admin & admin@burgundy2026';
+        errorBox.textContent = 'Invalid credentials. Please enter Property_Hub & Pranav@2006';
         errorBox.style.display = 'block';
       }
     }
