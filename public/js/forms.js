@@ -117,55 +117,80 @@
 
         <div class="form-row-2">
           <div class="form-group">
-            <label class="form-label">Property Exact Location / Society *</label>
-            <input type="text" name="preferred_location" class="form-input" placeholder="e.g. Marvel Diva, Magarpatta Road, Pune" required>
+            <label class="form-label">Property Title / Society Name *</label>
+            <input type="text" name="property_title" class="form-input" placeholder="e.g. Marvel Diva / Panchshil Towers" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Property Type</label>
+            <label class="form-label">Locality & City *</label>
+            <input type="text" name="preferred_location" class="form-input" placeholder="e.g. Magarpatta Road, Pune" required>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label class="form-label">Property Category</label>
             <select name="property_type" class="form-select">
-              <option value="Apartment / Flat">Apartment / Flat</option>
-              <option value="Bungalow / Villa">Bungalow / Villa</option>
+              <option value="Residential Apartment / Flat">Residential Apartment / Flat</option>
+              <option value="Luxury Villa / Bungalow">Luxury Villa / Bungalow</option>
               <option value="Penthouse">Penthouse</option>
               <option value="Commercial Shop / Office">Commercial Shop / Office</option>
               <option value="NA Land / Plot">NA Land / Plot</option>
             </select>
           </div>
+          <div class="form-group">
+            <label class="form-label">Configuration / BHK</label>
+            <select name="bhk_config" class="form-select">
+              <option value="1 BHK">1 BHK</option>
+              <option value="2 BHK">2 BHK</option>
+              <option value="3 BHK" selected>3 BHK</option>
+              <option value="4 BHK">4 BHK</option>
+              <option value="5+ BHK / Villa">5+ BHK / Villa</option>
+              <option value="Commercial / Land">Commercial / Land</option>
+            </select>
+          </div>
         </div>
 
         <div class="form-row-2">
           <div class="form-group">
-            <label class="form-label">Expected Selling Price (₹)</label>
-            <input type="text" name="budget" class="form-input" placeholder="e.g. ₹3.50 Cr or ₹85 Lakh" required>
+            <label class="form-label">Expected Selling Price (₹) *</label>
+            <input type="text" name="budget" class="form-input" placeholder="e.g. ₹2.85 Cr or ₹95 Lakh" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Carpet Area / Size</label>
-            <input type="text" name="property_size" class="form-input" placeholder="e.g. 2,150 sq ft or 3 Guntha">
+            <label class="form-label">Carpet Area / Size *</label>
+            <input type="text" name="property_size" class="form-input" placeholder="e.g. 1,650 sq ft or 3 Guntha" required>
           </div>
         </div>
 
         <div class="form-row-2">
           <div class="form-group">
-            <label class="form-label">Ownership & Documentation Status</label>
-            <select name="doc_status" class="form-select">
-              <option value="Clear Title & Ready Conveyance Deed">Clear Title & Ready Conveyance Deed</option>
-              <option value="Under Bank Loan / Mortgage">Under Bank Loan / Mortgage</option>
-              <option value="Co-operative Housing Society Share Cert">CHS Share Certificate</option>
-              <option value="7/12 Extract Clear Title">7/12 Extract Clear Title</option>
+            <label class="form-label">Furnishing Status</label>
+            <select name="furnishing" class="form-select">
+              <option value="Semi-Furnished">Semi-Furnished</option>
+              <option value="Fully Furnished">Fully Furnished</option>
+              <option value="Unfurnished">Unfurnished</option>
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Preferred Time to Contact</label>
-            <select name="contact_time" class="form-select">
-              <option value="Anytime on WhatsApp">Anytime on WhatsApp</option>
-              <option value="Morning (10 AM - 1 PM)">Morning (10 AM - 1 PM)</option>
-              <option value="Evening (4 PM - 8 PM)">Evening (4 PM - 8 PM)</option>
+            <label class="form-label">Property Age / Possession</label>
+            <select name="possession_status" class="form-select">
+              <option value="Ready to Move (0-2 Years)">Ready to Move (0-2 Years)</option>
+              <option value="Resale (2-5 Years)">Resale (2-5 Years)</option>
+              <option value="Resale (5+ Years)">Resale (5+ Years)</option>
+              <option value="Under Construction">Under Construction</option>
             </select>
           </div>
+        </div>
+
+        <!-- Images Option -->
+        <div class="form-group">
+          <label class="form-label">📸 Property Photos / Images</label>
+          <input type="file" id="modalSellPhotosInput" multiple accept="image/*" class="form-input" style="padding: 0.5rem; background: #0d0d0d; border-color: rgba(215, 193, 160, 0.3);">
+          <input type="text" name="photo_link" class="form-input" style="margin-top: 0.5rem; font-size: 0.85rem;" placeholder="Or paste Image URL / Google Drive photos link (Optional)">
         </div>
 
         <div class="form-group">
           <label class="form-label">Property Details & Key Highlights</label>
-          <textarea name="message" class="form-textarea" rows="2" placeholder="Floor, age of property, furnishings included, parking count..."></textarea>
+          <textarea name="message" class="form-textarea" rows="2" placeholder="Floor, parking slots, balcony view, furnishings included..."></textarea>
         </div>
       `
     },
@@ -832,10 +857,230 @@
     }
   }
 
+  // ===================================================================
+  // ON-PAGE SELL PROPERTY FORM & IMAGE ATTACHMENT LOGIC
+  // ===================================================================
+  function initSellPropertyPageForm() {
+    const sellForm = document.getElementById('sellPropertyPageForm');
+    if (!sellForm) return;
+
+    const dropzone = document.getElementById('sellImageDropzone');
+    const fileInput = document.getElementById('sellPropertyImagesInput');
+    const browseBtn = document.getElementById('browseImagesBtn');
+    const previewGrid = document.getElementById('sellImagesPreviewGrid');
+    const countBadge = document.getElementById('imagesCountBadge');
+
+    let uploadedImages = []; // Array of { name, size, dataUrl }
+
+    if (browseBtn && fileInput) {
+      browseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        fileInput.click();
+      });
+    }
+
+    if (dropzone && fileInput) {
+      dropzone.addEventListener('click', (e) => {
+        if (e.target !== browseBtn) {
+          fileInput.click();
+        }
+      });
+
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.add('dragover');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove('dragover');
+        });
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        if (dt && dt.files) {
+          handleFiles(dt.files);
+        }
+      });
+
+      fileInput.addEventListener('change', () => {
+        handleFiles(fileInput.files);
+      });
+    }
+
+    function handleFiles(files) {
+      if (!files || files.length === 0) return;
+      Array.from(files).forEach(file => {
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          uploadedImages.push({
+            name: file.name,
+            size: (file.size / 1024).toFixed(1) + ' KB',
+            dataUrl: e.target.result
+          });
+          renderPreviews();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderPreviews() {
+      if (!previewGrid) return;
+      if (uploadedImages.length === 0) {
+        previewGrid.style.display = 'none';
+        previewGrid.innerHTML = '';
+        if (countBadge) countBadge.style.display = 'none';
+        return;
+      }
+
+      previewGrid.style.display = 'grid';
+      previewGrid.innerHTML = uploadedImages.map((img, idx) => `
+        <div class="preview-thumb-card" title="${img.name} (${img.size})">
+          <img src="${img.dataUrl}" alt="${img.name}" class="preview-thumb-img">
+          <button type="button" class="preview-remove-btn" onclick="window.RealEstateForms.removeSellImage(${idx})">✕</button>
+        </div>
+      `).join('');
+
+      if (countBadge) {
+        countBadge.style.display = 'inline-flex';
+        countBadge.innerHTML = `✓ ${uploadedImages.length} ${uploadedImages.length === 1 ? 'photo' : 'photos'} attached`;
+      }
+    }
+
+    window.RealEstateForms = window.RealEstateForms || {};
+    window.RealEstateForms.removeSellImage = function(index) {
+      uploadedImages.splice(index, 1);
+      renderPreviews();
+    };
+
+    sellForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitSellPropertyBtn');
+      
+      const ownerName = document.getElementById('sellOwnerName').value.trim();
+      const ownerPhone = document.getElementById('sellOwnerPhone').value.trim();
+      const ownerEmail = document.getElementById('sellOwnerEmail').value.trim();
+      const propTitle = document.getElementById('sellPropTitle').value.trim();
+      const propLocation = document.getElementById('sellPropLocation').value.trim();
+      const propCategory = document.getElementById('sellPropCategory').value;
+      const propBhk = document.getElementById('sellPropBhk').value;
+      const propPrice = document.getElementById('sellPropPrice').value.trim();
+      const propArea = document.getElementById('sellPropArea').value.trim();
+      const propFurnishing = document.getElementById('sellPropFurnishing').value;
+      const propAge = document.getElementById('sellPropAge').value;
+      const propImageUrls = document.getElementById('sellPropImageUrls').value.trim();
+      const propDesc = document.getElementById('sellPropDesc').value.trim();
+
+      // Validate Phone: 10 digits
+      const cleanedPhone = ownerPhone.replace(/\D/g, '');
+      if (cleanedPhone.length !== 10) {
+        alert('Please enter a valid 10-digit Indian WhatsApp mobile number.');
+        document.getElementById('sellOwnerPhone').focus();
+        return;
+      }
+
+      if (!propTitle || !propLocation || !propPrice || !propArea) {
+        alert('Please fill in the required property details (Title, Location, Price, Area).');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+
+      const photoCountText = uploadedImages.length > 0 
+        ? `${uploadedImages.length} property photos attached` 
+        : (propImageUrls ? 'Photo Link provided' : 'Photos available on request');
+
+      // WhatsApp Message Formatting
+      const waText = 
+`🏛️ *PROPERTY HUB - PROPERTY SALE MANDATE*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 *Owner Name:* ${ownerName}
+📱 *WhatsApp Number:* +91 ${cleanedPhone}
+${ownerEmail ? `📧 *Email:* ${ownerEmail}\n` : ''}
+🏰 *Property Title / Society:* ${propTitle}
+📍 *Locality & City:* ${propLocation}
+🏷️ *Category:* ${propCategory}
+🛏️ *Configuration:* ${propBhk}
+💰 *Expected Price:* ${propPrice}
+📐 *Carpet Area / Size:* ${propArea}
+🛋️ *Furnishing:* ${propFurnishing}
+⏳ *Possession / Age:* ${propAge}
+📸 *Property Photos:* ${photoCountText}
+${propImageUrls ? `🔗 *Photos Link:* ${propImageUrls}\n` : ''}
+${propDesc ? `📝 *Highlights:* ${propDesc}\n` : ''}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+_Submitted via Property Hub Website Seller Mandate Desk_`;
+
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
+
+      // Save mandate lead to localStorage
+      const leadPayload = {
+        id: Date.now(),
+        lead_type: 'sell',
+        name: ownerName,
+        phone: cleanedPhone,
+        email: ownerEmail,
+        property_title: `${propTitle} (${propBhk}, ${propCategory})`,
+        preferred_location: propLocation,
+        budget: propPrice,
+        carpet_area: propArea,
+        furnishing: propFurnishing,
+        possession: propAge,
+        images_count: uploadedImages.length,
+        image_thumbnails: uploadedImages.slice(0, 4).map(i => i.dataUrl),
+        image_urls: propImageUrls,
+        notes: propDesc,
+        status: 'New',
+        created_at: new Date().toISOString()
+      };
+
+      try {
+        const savedLeads = JSON.parse(localStorage.getItem('aurum_offline_leads') || '[]');
+        savedLeads.unshift(leadPayload);
+        localStorage.setItem('aurum_offline_leads', JSON.stringify(savedLeads.slice(0, 150)));
+
+        const savedMandates = JSON.parse(localStorage.getItem('aurum_seller_mandates') || '[]');
+        savedMandates.unshift(leadPayload);
+        localStorage.setItem('aurum_seller_mandates', JSON.stringify(savedMandates.slice(0, 50)));
+
+        // Attempt POST to backend
+        fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(leadPayload)
+        }).catch(() => {});
+      } catch (err) {}
+
+      alert(`✓ Thank you, ${ownerName}! Your property listing "${propTitle}" has been received. Opening WhatsApp with +91 79728 89444 to complete your submission.`);
+      window.open(waUrl, '_blank');
+
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+      sellForm.reset();
+      uploadedImages = [];
+      renderPreviews();
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    initSellPropertyPageForm();
+  });
+
   // Attach to window
-  window.RealEstateForms = {
+  window.RealEstateForms = Object.assign(window.RealEstateForms || {}, {
     openInquiryModal,
     closeModal
-  };
+  });
 
 })();
+

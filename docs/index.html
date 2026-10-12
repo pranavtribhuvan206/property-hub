@@ -93,6 +93,7 @@
           <li><a href="#residential" class="nav-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=residential]').click();">Residential</a></li>
           <li><a href="#commercial" class="nav-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=commercial]').click();">Commercial</a></li>
           <li><a href="#land" class="nav-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=land]').click();">Plots & Land</a></li>
+          <li><a href="#sell-property" class="nav-link nav-highlight">Sell Property</a></li>
           <li><a href="#rentals" class="nav-link" onclick="window.RealEstateApp.resetFilters(); document.querySelector('[data-category=rental]').click();">Rentals</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#calculator" class="nav-link">EMI Calc</a></li>
@@ -149,9 +150,9 @@
         <button class="btn btn-dark" onclick="window.RealEstateForms.openInquiryModal('buy')">
           Buy Property
         </button>
-        <button class="btn btn-dark" onclick="window.RealEstateForms.openInquiryModal('sell')">
+        <a href="#sell-property" class="btn btn-dark btn-sell-hero">
           Sell Property
-        </button>
+        </a>
         <button class="btn btn-dark" onclick="window.RealEstateForms.openInquiryModal('rent')">
           Rent Property
         </button>
@@ -302,6 +303,273 @@
       <!-- Properties Grid (Populated dynamically via JavaScript & SQLite database) -->
       <div class="properties-grid" id="propertiesGrid">
         <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SELL PROPERTY MANDATE & OWNER LISTING ENGINE (COLUMN & FORM)
+       =================================================================== -->
+  <section class="section-padding sell-property-section" id="sell-property">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <div class="section-eyebrow">Direct Owner Mandates</div>
+        <h2 class="section-title">Sell Your Property at Maximum Value</h2>
+        <p class="section-desc">
+          List your apartment, penthouse, villa, commercial showroom, or NA plot with Property Hub. Reach verified high-net-worth buyers, corporate leaders, and active NRI investors across Pune and Mumbai.
+        </p>
+      </div>
+
+      <!-- 2-Column Layout: Left Column (Brokerage Value & Advisory) + Right Column (Property Form with Images) -->
+      <div class="sell-columns-wrapper">
+        
+        <!-- Left Column: Brokerage Authority, Guarantees & Advisory Help -->
+        <div class="sell-info-column">
+          <div class="sell-info-card">
+            <div class="sell-badge-pill">
+              <span>✦</span> EXCLUSIVE SELLER ADVISORY
+            </div>
+            
+            <h3 class="sell-info-title">
+              Why Discerning Owners Entrust Their Listings to Property Hub
+            </h3>
+            
+            <p class="sell-info-subtitle">
+              We eliminate tire-kickers and intrusive spam calls. Every mandate is represented with absolute discretion, professional multi-angle presentation, and targeted private viewings.
+            </p>
+
+            <!-- Feature Points -->
+            <div class="sell-benefits-list">
+              <div class="sell-benefit-item">
+                <div class="benefit-icon-badge">💎</div>
+                <div>
+                  <h4 class="benefit-heading">Pre-Qualified Buyer Network</h4>
+                  <p class="benefit-text">Direct access to ready HNWI buyers, institutional executives, and NRI investors with verified purchasing capacity.</p>
+                </div>
+              </div>
+
+              <div class="sell-benefit-item">
+                <div class="benefit-icon-badge">📸</div>
+                <div>
+                  <h4 class="benefit-heading">Professional Photo & Multi-Angle Showcase</h4>
+                  <p class="benefit-text">We showcase your property with high-definition photos, verified carpet measurements, and curated architectural highlights.</p>
+                </div>
+              </div>
+
+              <div class="sell-benefit-item">
+                <div class="benefit-icon-badge">🛡️</div>
+                <div>
+                  <h4 class="benefit-heading">Strict Privacy & Zero Unwanted Calls</h4>
+                  <p class="benefit-text">Your phone number is never published on public portals. All preliminary buyer screening is managed by our principal desk.</p>
+                </div>
+              </div>
+
+              <div class="sell-benefit-item">
+                <div class="benefit-icon-badge">⚖️</div>
+                <div>
+                  <h4 class="benefit-heading">Full Title & Legal Conveyance Support</h4>
+                  <p class="benefit-text">Expert assistance with draft agreements, MahaRERA compliance, society NOC, and registered conveyance deed execution.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Contact Box -->
+            <div class="sell-contact-card">
+              <div class="contact-card-header">
+                <div>
+                  <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-champagne); letter-spacing: 0.1em; font-weight: 600;">NEED IMMEDIATE VALUATION?</div>
+                  <div style="font-size: 1.1rem; color: #FFF; font-weight: 700; font-family: var(--font-display);">Direct Broker Line</div>
+                </div>
+                <div style="font-size: 1.75rem;">🏛️</div>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-light-gray); margin: 0.75rem 0 1rem;">
+                Speak directly with our Principal Advisor for a free, confidential market valuation of your property.
+              </p>
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="https://wa.me/917972889444?text=Hello%20Property%20Hub%2C%20I%20would%20like%20to%20discuss%20selling%20my%20property." target="_blank" class="btn btn-whatsapp btn-sm" style="flex: 1; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+                  <span>WhatsApp: 79728 89444</span>
+                </a>
+                <a href="tel:+917972889444" class="btn btn-dark btn-sm" style="border: 1px solid var(--border-subtle);">
+                  📞 Call Now
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Sell Property Form with Image Upload -->
+        <div class="sell-form-column">
+          <div class="sell-form-card">
+            
+            <div class="form-card-header">
+              <div class="form-header-crest">PH</div>
+              <div>
+                <h3 class="form-card-title">List Your Property for Sale</h3>
+                <p class="form-card-desc">Enter basic property details & attach photos for buyer matching</p>
+              </div>
+            </div>
+
+            <form id="sellPropertyPageForm" class="sell-property-form" novalidate>
+              
+              <!-- STEP 1: Owner Information -->
+              <div class="form-section-label">
+                <span>01</span> Owner & Contact Details
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Owner Full Name *</label>
+                  <input type="text" name="owner_name" id="sellOwnerName" class="form-input" placeholder="e.g. Sunil Agarwal" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">WhatsApp Contact Number *</label>
+                  <input type="tel" name="owner_phone" id="sellOwnerPhone" class="form-input" placeholder="10-digit Mobile (e.g. 9822012345)" maxlength="10" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email Address (Optional)</label>
+                <input type="email" name="owner_email" id="sellOwnerEmail" class="form-input" placeholder="sunil.agarwal@example.com">
+              </div>
+
+              <!-- STEP 2: Basic Property Information -->
+              <div class="form-section-label" style="margin-top: 1.5rem;">
+                <span>02</span> Basic Property Information
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Property Title / Society Name *</label>
+                  <input type="text" name="property_title" id="sellPropTitle" class="form-input" placeholder="e.g. Marvel Diva / Panchshil Towers" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Locality & City *</label>
+                  <input type="text" name="property_location" id="sellPropLocation" class="form-input" placeholder="e.g. Magarpatta Road, Pune" required>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Property Category *</label>
+                  <select name="property_category" id="sellPropCategory" class="form-select" required>
+                    <option value="Residential Apartment / Flat">Residential Apartment / Flat</option>
+                    <option value="Luxury Villa / Bungalow">Luxury Villa / Bungalow</option>
+                    <option value="Penthouse">Penthouse</option>
+                    <option value="Commercial Showroom / Office">Commercial Showroom / Office</option>
+                    <option value="NA Land / Villa Plot">NA Land / Villa Plot</option>
+                    <option value="Farmhouse / Agricultural Estate">Farmhouse / Agricultural Estate</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Configuration / BHK *</label>
+                  <select name="property_bhk" id="sellPropBhk" class="form-select" required>
+                    <option value="1 BHK">1 BHK</option>
+                    <option value="2 BHK">2 BHK</option>
+                    <option value="3 BHK" selected>3 BHK</option>
+                    <option value="4 BHK">4 BHK</option>
+                    <option value="5+ BHK / Duplex">5+ BHK / Duplex</option>
+                    <option value="Commercial Space">Commercial Space</option>
+                    <option value="Plot / Land Parcel">Plot / Land Parcel</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Expected Selling Price *</label>
+                  <input type="text" name="expected_price" id="sellPropPrice" class="form-input" placeholder="e.g. ₹2.85 Cr or ₹95 Lakh" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Carpet Area / Size *</label>
+                  <input type="text" name="carpet_area" id="sellPropArea" class="form-input" placeholder="e.g. 1,650 sq ft or 3 Guntha" required>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Furnishing Status</label>
+                  <select name="furnishing" id="sellPropFurnishing" class="form-select">
+                    <option value="Semi-Furnished" selected>Semi-Furnished</option>
+                    <option value="Fully Furnished">Fully Furnished</option>
+                    <option value="Unfurnished">Unfurnished</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Property Age / Possession</label>
+                  <select name="property_age" id="sellPropAge" class="form-select">
+                    <option value="Ready to Move (0-2 Years)">Ready to Move (0-2 Years)</option>
+                    <option value="Resale (2-5 Years)">Resale (2-5 Years)</option>
+                    <option value="Resale (5-10 Years)">Resale (5-10 Years)</option>
+                    <option value="Under Construction">Under Construction</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- STEP 3: Property Images Option -->
+              <div class="form-section-label" style="margin-top: 1.5rem;">
+                <span>03</span> Property Photos & Images
+              </div>
+
+              <div class="image-upload-wrapper">
+                <div class="image-dropzone" id="sellImageDropzone">
+                  <input type="file" id="sellPropertyImagesInput" multiple accept="image/*" class="file-input-hidden">
+                  <div class="dropzone-content">
+                    <div class="dropzone-icon">📸</div>
+                    <div class="dropzone-title">Click to Select Photos or Drag & Drop Here</div>
+                    <div class="dropzone-subtitle">Attach photos of living room, bedrooms, kitchen, balcony & exterior (JPG, PNG, WEBP)</div>
+                    <button type="button" class="btn btn-dark btn-sm" id="browseImagesBtn" style="margin-top: 0.75rem; border: 1px solid var(--border-subtle);">
+                      📂 Browse Property Photos
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Live Thumbnails Gallery Preview -->
+                <div id="sellImagesPreviewGrid" class="images-preview-grid" style="display: none;"></div>
+                <div id="imagesCountBadge" class="images-count-badge" style="display: none;"></div>
+
+                <!-- Image URL Alternative -->
+                <div style="margin-top: 0.75rem;">
+                  <input type="text" name="image_links" id="sellPropImageUrls" class="form-input" style="font-size: 0.85rem;" placeholder="Or paste Image URL / Google Drive photos link (Optional)">
+                </div>
+              </div>
+
+              <!-- STEP 4: Features & Description -->
+              <div class="form-section-label" style="margin-top: 1.5rem;">
+                <span>04</span> Key Highlights & Features
+              </div>
+
+              <div class="form-group">
+                <textarea name="description" id="sellPropDesc" class="form-textarea" rows="2" placeholder="Mention floor number, parking slots (covered/open), balcony view, vastu orientation, or standout amenities..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-checkbox-label">
+                  <input type="checkbox" id="sellClearTitleCheck" checked>
+                  <span>I confirm this property has clear ownership documentation and I am authorized to list it for sale.</span>
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <div style="margin-top: 1.5rem;">
+                <button type="submit" id="submitSellPropertyBtn" class="btn btn-burgundy btn-lg" style="width: 100%; justify-content: center; padding: 1rem 1.5rem; font-size: 1.05rem;">
+                  <span>📤 Submit Property Listing & Send to WhatsApp</span>
+                </button>
+              </div>
+
+              <div class="form-security-note">
+                <span>🔒 100% Privacy</span> • <span>⚡ Instant WhatsApp Pre-fill (+91 79728 89444)</span> • <span>✓ Zero Advance Charges</span>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -709,7 +977,7 @@
           <h4 class="footer-heading">Inquiry Concierge</h4>
           <ul class="footer-links">
             <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('buy')">Buy a Property</a></li>
-            <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('sell')">Sell Your Property</a></li>
+            <li><a href="#sell-property" class="footer-link">Sell Your Property</a></li>
             <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('rent')">Find Rental Home</a></li>
             <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('list_rental')">List Property for Rent</a></li>
             <li><a href="javascript:void(0)" class="footer-link" onclick="window.RealEstateForms.openInquiryModal('site_visit')">Book a Site Visit</a></li>

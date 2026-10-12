@@ -842,10 +842,20 @@
               </a>
             </div>
           </td>
-          <td style="text-transform: uppercase; font-size: 0.8rem; font-weight: 600; color: #D7C1A0;">${l.lead_type}</td>
+          <td style="text-transform: uppercase; font-size: 0.8rem; font-weight: 600; color: #D7C1A0;">
+            ${l.lead_type}
+            ${l.lead_type === 'sell' ? `<span style="display: block; font-size: 0.68rem; color: #25D366; font-weight: 700;">SELLER MANDATE</span>` : ''}
+          </td>
           <td>
-            <div style="font-size: 0.88rem; color: #FFF;">${l.property_title || l.property_id || 'General Requirement'}</div>
-            <div style="font-size: 0.78rem; color: #8E8E93;">${l.preferred_location || 'Not specified'}</div>
+            <div style="font-size: 0.88rem; color: #FFF; font-weight: 600;">${l.property_title || l.property_id || 'General Requirement'}</div>
+            <div style="font-size: 0.78rem; color: #8E8E93;">${l.preferred_location || 'Not specified'} ${l.carpet_area ? `• ${l.carpet_area}` : ''} ${l.furnishing ? `• ${l.furnishing}` : ''}</div>
+            ${l.image_thumbnails && l.image_thumbnails.length > 0 ? `
+              <div style="display: flex; gap: 0.35rem; margin-top: 0.4rem; align-items: center;">
+                ${l.image_thumbnails.map(t => `<img src="${t}" style="width: 34px; height: 34px; object-fit: cover; border-radius: 4px; border: 1px solid #741F38;" title="Property photo">`).join('')}
+                <span style="font-size: 0.72rem; color: #D7C1A0; margin-left: 0.2rem;">📸 ${l.images_count || l.image_thumbnails.length} photos</span>
+              </div>
+            ` : ''}
+            ${l.image_urls ? `<div style="font-size: 0.72rem; margin-top: 0.25rem;"><a href="${l.image_urls}" target="_blank" style="color: #D7C1A0; text-decoration: underline;">🔗 Photo Link</a></div>` : ''}
           </td>
           <td style="color: #D7C1A0; font-weight: 600;">${l.budget || 'Flexible'}</td>
           <td>
@@ -859,9 +869,16 @@
             </select>
           </td>
           <td>
-            <button class="btn-admin btn-admin-outline" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="window.AdminApp.promptLeadNotes(${l.id}, '${(l.notes || '').replace(/'/g, "\\'")}')">
-              Notes (${l.notes ? '✓' : 'Add'})
-            </button>
+            <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+              <button class="btn-admin btn-admin-outline" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="window.AdminApp.promptLeadNotes(${l.id}, '${(l.notes || '').replace(/'/g, "\\'")}')">
+                Notes (${l.notes ? '✓' : 'Add'})
+              </button>
+              ${l.lead_type === 'sell' ? `
+                <button class="btn-admin btn-admin-primary" style="padding: 0.3rem 0.6rem; font-size: 0.72rem; background: #741F38;" onclick="window.AdminApp.quickPublishSellerProp(${l.id})">
+                  + Add to Portfolio
+                </button>
+              ` : ''}
+            </div>
           </td>
         </tr>
       `;
@@ -1055,6 +1072,50 @@
     URL.revokeObjectURL(url);
   }
 
+  function quickPublishSellerProp(leadId) {
+    const lead = cachedLeads.find(l => l.id == leadId);
+    if (!lead) return;
+
+    let priceNum = 0;
+    if (lead.budget) {
+      const match = lead.budget.match(/[\d.]+/);
+      if (match) {
+        const val = parseFloat(match[0]);
+        if (lead.budget.toLowerCase().includes('cr')) priceNum = val * 10000000;
+        else if (lead.budget.toLowerCase().includes('lakh')) priceNum = val * 100000;
+        else priceNum = val;
+      }
+    }
+
+    const prop = {
+      id: '',
+      title: lead.property_title || 'Luxury Residence',
+      category: 'residential',
+      subcategory: 'Apartment',
+      transaction_type: 'Buy',
+      price: priceNum || 15000000,
+      price_display: lead.budget || '₹1.50 Cr',
+      city: 'Pune',
+      locality: lead.preferred_location || 'Koregaon Park',
+      area_sqft: parseInt(lead.carpet_area) || 1650,
+      bedrooms: 3,
+      bathrooms: 3,
+      status: 'Available',
+      images: (lead.image_thumbnails && lead.image_thumbnails.length > 0)
+        ? lead.image_thumbnails
+        : ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'],
+      rera_id: 'PR/MAH/2026/001',
+      featured: true,
+      verified: true,
+      description: lead.notes || `Owner mandate by ${lead.name} (${lead.phone}). Location: ${lead.preferred_location || 'Pune'}.`
+    };
+
+    switchTab('properties');
+    setTimeout(() => {
+      openPropertyModal(prop);
+    }, 200);
+  }
+
   // Window export
   window.AdminApp = {
     switchTab,
@@ -1065,7 +1126,8 @@
     updatePropertyStatus,
     updateLeadStatus,
     promptLeadNotes,
-    exportLeadsCSV
+    exportLeadsCSV,
+    quickPublishSellerProp
   };
 
 })();
